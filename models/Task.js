@@ -7,17 +7,27 @@ const taskSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
+
     column: {
       type: String,
       enum: ["todo", "inProgress", "done"],
-      required: true,
+      default: "todo",
     },
+
     order: {
       type: Number,
       default: 0,
     },
+
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
   },
-  { timestamps: true }
+  {
+    timestamps: true,
+  }
 );
 
 export default mongoose.model("Task", taskSchema);
