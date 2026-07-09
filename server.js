@@ -26,6 +26,15 @@ app.use("/api/auth", authRoutes);
 app.use("/api/tasks", taskRoutes);
 
 const PORT = process.env.PORT || 5000;
+
+app.get("/", (req, res) => {
+    res.json({
+        success: true,
+        message: "Blog API is running successfully 🚀",
+    });
+});
+
+
 app.listen(PORT, () =>
     console.log(`🚀 Server running on http://localhost:${PORT}`)
 );
